@@ -1,7 +1,5 @@
 export type categoryType = {
-  id: number;
+  id: number | undefined;
   name: string;
   image: string;
-  creationAt: string;
-  updatedAt: string;
 };

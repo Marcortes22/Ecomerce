@@ -3,7 +3,7 @@ import { categoryType } from "../types/Category";
 export async function createCategory(newCategory: categoryType) {
   try {
     const response = await fetch(
-      `https://661fe9df16358961cd95e466.mockapi.io/api/v1/categories`,
+      `https://${import.meta.env.VITE_API_URL}.mockapi.io/api/v1/categories`,
       {
         method: "POST",
         headers: { "content-type": "application/json" },
@@ -22,7 +22,7 @@ export async function createCategory(newCategory: categoryType) {
 export async function getAllCategories() {
   try {
     const response = await fetch(
-      "https://661fe9df16358961cd95e466.mockapi.io/api/v1/categories",
+      `https://${import.meta.env.VITE_API_URL}.mockapi.io/api/v1/categories`,
       {
         method: "GET",
         headers: { "Content-Type": "application/json" },
@@ -39,7 +39,9 @@ export async function getAllCategories() {
 export async function getCategoryById(id: number) {
   try {
     const response = await fetch(
-      `https://661fe9df16358961cd95e466.mockapi.io/api/v1/categories/${id}`,
+      `https://${
+        import.meta.env.VITE_API_URL
+      }.mockapi.io/api/v1/categories/${id}`,
       {
         method: "GET",
         headers: { "Content-Type": "application/json" },
@@ -59,7 +61,9 @@ export async function updateCategory(
 ) {
   try {
     const response = await fetch(
-      `https://661fe9df16358961cd95e466.mockapi.io/api/v1/categories/${id}`,
+      `https://${
+        import.meta.env.VITE_API_URL
+      }.mockapi.io/api/v1/categories/${id}`,
       {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -78,13 +82,15 @@ export async function updateCategory(
 export async function deleteCategory(id: number) {
   try {
     const response = await fetch(
-      `https://661fe9df16358961cd95e466.mockapi.io/api/v1/categories/${id}`,
+      `https://${
+        import.meta.env.VITE_API_URL
+      }.mockapi.io/api/v1/categories/${id}`,
       {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
       }
     );
-    if (await !response.ok) throw new Error("Error to get category");
+    if (await !response.ok) throw new Error("Error to get delete");
     const category = await response.json();
     return category;
   } catch (error) {
