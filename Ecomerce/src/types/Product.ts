@@ -1,16 +1,10 @@
 export type productType = {
-  id: number;
   title: string;
-  price: number;
   description: string;
+  price: number;
   images: string[];
-  creationAt: Date;
-  updatedAt: Date;
-  category: {
-    id: number;
-    name: string;
-    image: string;
-    creationAt: Date;
-    updatedAt: Date;
-  };
+  creationAt: string;
+  updatedAt: string;
+  id: number;
+  categoryId: number;
 };
