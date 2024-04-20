@@ -6,7 +6,9 @@ export async function createProduct(
 ) {
   try {
     const response = await fetch(
-      `https://661fe9df16358961cd95e466.mockapi.io/api/v1/categories/${categoryId}/products`,
+      `https://${
+        import.meta.env.VITE_API_URL
+      }.mockapi.io/api/v1/categories/${categoryId}/products`,
       {
         method: "POST",
         headers: { "content-type": "application/json" },
@@ -25,13 +27,13 @@ export async function createProduct(
 export async function getAllProducts() {
   try {
     const response = await fetch(
-      "https://661fe9df16358961cd95e466.mockapi.io/api/v1/products",
+      `https://${import.meta.env.VITE_API_URL}.mockapi.io/api/v1/products`,
       {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       }
     );
-    if (!response.ok) throw new Error("Error to get categories");
+    if (!response.ok) throw new Error("Error to get products");
     const products: productType[] = await response.json();
     return products;
   } catch (error) {
@@ -42,7 +44,9 @@ export async function getAllProducts() {
 export async function getProductById(categoryId: number, productId: number) {
   try {
     const response = await fetch(
-      `https://661fe9df16358961cd95e466.mockapi.io/api/v1/categories/${categoryId}/products/${productId}`,
+      `https://${
+        import.meta.env.VITE_API_URL
+      }.mockapi.io/api/v1/categories/${categoryId}/products/${productId}`,
       {
         method: "GET",
         headers: { "Content-Type": "application/json" },
@@ -59,13 +63,16 @@ export async function getProductById(categoryId: number, productId: number) {
 export async function getProductByCategory(categoryId: number) {
   try {
     const response = await fetch(
-      `https://661fe9df16358961cd95e466.mockapi.io/api/v1/categories/${categoryId}/products`,
+      `https://${
+        import.meta.env.VITE_API_URL
+      }.mockapi.io/api/v1/categories/${categoryId}/products`,
       {
         method: "GET",
         headers: { "Content-Type": "application/json" },
       }
     );
-    if (await !response.ok) throw new Error("Error to get products");
+    if (await !response.ok)
+      throw new Error("Error to get products by category");
     const products = await response.json();
     return products;
   } catch (error) {
@@ -80,7 +87,9 @@ export async function updateProduct(
 ) {
   try {
     const response = await fetch(
-      `https://661fe9df16358961cd95e466.mockapi.io/api/v1/categories/${categoryId}/products/${productId}`,
+      `https://${
+        import.meta.env.VITE_API_URL
+      }.mockapi.io/api/v1/categories/${categoryId}/products/${productId}`,
       {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
@@ -88,7 +97,7 @@ export async function updateProduct(
         body: JSON.stringify(Updatedproduct),
       }
     );
-    if (await !response.ok) throw new Error("Error to edit product");
+    if (await !response.ok) throw new Error("Error to update product");
     const product = await response.json();
     return product;
   } catch (error) {
@@ -99,7 +108,9 @@ export async function updateProduct(
 export async function deleteProduct(categoryId: number, productId: number) {
   try {
     const response = await fetch(
-      `https://661fe9df16358961cd95e466.mockapi.io/api/v1/categories/${categoryId}/products/${productId}`,
+      `https://${
+        import.meta.env.VITE_API_URL
+      }.mockapi.io/api/v1/categories/${categoryId}/products/${productId}`,
       {
         method: "DELETE",
         headers: { "Content-Type": "application/json" },
