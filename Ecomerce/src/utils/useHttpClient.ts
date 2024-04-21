@@ -34,7 +34,7 @@ async function fetchRequest<T>(options: RequestOptions): Promise<T> {
     case ContentType.JSON: return response.json() as Promise<T>;
     case ContentType.Text || ContentType.Html: return response.text() as unknown as Promise<T>;
     case ContentType.ArrayBuffer: return response.arrayBuffer() as unknown as Promise<T>;
-    default: return response.arrayBuffer() as unknown as Promise<T>;
+    default: return response.blob() as unknown as Promise<T>;
   }
 }
 
