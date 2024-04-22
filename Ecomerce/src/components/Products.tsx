@@ -1,6 +1,4 @@
-import { useEffect, useState } from "react";
 import { productType } from "../types/Product";
-import { getAllProducts } from "../services/Products";
 import SingleProduct from "./SingleProduct";
 import { useGetProduts } from "../hooks/useGetProducts";
 
