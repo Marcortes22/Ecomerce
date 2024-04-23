@@ -45,3 +45,160 @@ Es obligatorio ejecutar GET, GET/{id}, POST, PUT, DELETE, aparte ejecutar endpoi
 6. Deben incluir paginación a la tabla de registros.
 
 7. Deben incluir un campo de texto que permita realizar una búsqueda sobre los registros mostrados.
+## Categories
+
+
+https://api_key.mockapi.io/api/v1/:endpoint
+
+
+#### Get all categories
+
+```http
+  GET /categories
+```
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` | **Required**. Your API key |
+
+
+#### Get category
+
+```http
+  GET /categories/:id
+```
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `api_key` | `string` | **Required**. Your API key |
+| `id`      | `string` | **Required**. Id of category to fetch |
+
+
+#### Create category
+```http
+  POST /categories/
+```
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `api_key` | `string` | **Required**. Your API key |
+| `id`      | `string` | **Required**. Id of item to save |
+| `name`      | `string` | **Required**. name of item to save |
+| `image`      | `string` | **Required**. image of item to save |
+
+
+#### Update category
+```http
+  PUT /categories/:id
+```
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `api_key` | `string` | **Required**. Your API key |
+| `id`      | `string` | **Optional**. Id of item to update |
+| `name`      | `string` | **Optional**. name of item to update |
+| `image`      | `string` | **Optional**. image of item to update |
+
+
+
+#### Delete category
+```http
+  DELETE /categories/:id
+```
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `api_key` | `string` | **Required**. Your API key |
+| `id`      | `string` | **Required**. Id of category to delete |
+
+
+
+## Products
+
+
+https://api_key.mockapi.io/api/v1/:endpoint
+
+
+#### Get all Products
+
+```http
+  
+GET /products
+```
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` | **Required**. Your API key |
+
+
+
+#### Get all Products by category
+
+```http
+  
+GET /categories/:id/products
+```
+| Parameter | Type     | Description                |
+| :-------- | :------- | :------------------------- |
+| `api_key` | `string` | **Required**. Your API key |
+| `id`      | `string` | **Required**. Id of category|
+
+
+
+#### Get product by id
+
+```http
+ GET /categories/:category_id/products/:product_id
+```
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `api_key` | `string` | **Required**. Your API key |
+| `category_id`      | `string` | **Required**. Id of category related with product searched |
+| `product_id`      | `string` | **Required**. Id of product searched |
+
+
+#### Create product
+```http
+  
+POST /categories/:category_id/products
+```
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `api_key` | `string` | **Required**. Your API key |
+| `category_id`      | `string` | **Required**. Category Id of the new product related |
+| `title`      | `string` | **Required**. New product title|
+| `price`      | int | **Required**. New product price|
+| `Description`      | `string` | **Required**. New product description|
+| `images`      | `array<string>` | **Required**. New product images|
+| `categoryId`      | `string` | **Required**. New product category|
+
+
+
+#### Update product
+```http
+  PUT /categories/:category_id/products/:product_id
+```
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `api_key` | `string` | **Required**. Your API key |
+| `category_id`      | `string` | **Required**. Product's category id to update |
+| `product_id`      | `string` | **Required**. Product id  |
+| `title`      | `string` | **Optional**. New title product|
+| `price`      | int | **Optional**. New price product |
+| `Description`      | `string` | **Optional**. New description product |
+| `images`      | `array<string>` | **Optional**. New images product |
+| `categoryId`      | `string` | **Optional**. New category product |
+
+
+
+#### Delete category
+```http
+  
+DELETE /categories/:category_id/products/:product_id
+```
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `api_key` | `string` | **Required**. Your API key |
+| `category_id`      | `string` | **Required**. Product's category id to delete |
+| `product_id`      | `string` | **Required**.  Id of Product to delete  |
+
+
+
+
+
+
+
