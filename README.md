@@ -54,7 +54,8 @@ https://api_key.mockapi.io/api/v1/:endpoint
 #### Get all categories
 
 ```http
-  GET /categories
+
+GET /categories
 ```
 | Parameter | Type     | Description                |
 | :-------- | :------- | :------------------------- |
@@ -64,7 +65,7 @@ https://api_key.mockapi.io/api/v1/:endpoint
 #### Get category
 
 ```http
-  GET /categories/:id
+GET /categories/:id
 ```
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
@@ -74,7 +75,7 @@ https://api_key.mockapi.io/api/v1/:endpoint
 
 #### Create category
 ```http
-  POST /categories/
+POST /categories/
 ```
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
@@ -86,7 +87,7 @@ https://api_key.mockapi.io/api/v1/:endpoint
 
 #### Update category
 ```http
-  PUT /categories/:id
+PUT /categories/:id
 ```
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
@@ -99,7 +100,7 @@ https://api_key.mockapi.io/api/v1/:endpoint
 
 #### Delete category
 ```http
-  DELETE /categories/:id
+DELETE /categories/:id
 ```
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
@@ -142,7 +143,7 @@ GET /categories/:id/products
 #### Get product by id
 
 ```http
- GET /categories/:category_id/products/:product_id
+GET /categories/:category_id/products/:product_id
 ```
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
@@ -170,7 +171,7 @@ POST /categories/:category_id/products
 
 #### Update product
 ```http
-  PUT /categories/:category_id/products/:product_id
+PUT /categories/:category_id/products/:product_id
 ```
 | Parameter | Type     | Description                       |
 | :-------- | :------- | :-------------------------------- |
