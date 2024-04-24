@@ -1,6 +1,6 @@
 import { productType } from "../types/Product";
 import SingleProduct from "./SingleProduct";
-import { useGetProduts } from "../hooks/useGetProducts";
+import { useGetProduts } from "../hooks/Products/useGetProducts";
 
 export default function Products({}) {
   const { products } = useGetProduts();

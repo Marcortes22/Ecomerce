@@ -3,8 +3,6 @@ export type productType = {
   description: string;
   price: number;
   images: string[];
-  creationAt: string;
-  updatedAt: string;
   id: number;
   categoryId: number;
 };
