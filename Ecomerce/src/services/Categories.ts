@@ -18,7 +18,6 @@ export async function createCategory(newCategory: categoryType) {
     throw error;
   }
 }
-
 export async function getAllCategories() {
   try {
     const response = await fetch(
