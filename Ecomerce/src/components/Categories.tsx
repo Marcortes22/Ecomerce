@@ -5,7 +5,7 @@ import SingleCategory from "./SingleCategory";
 export default function Categories() {
   const { categories } = useGetCategories()
   return <>
-    <nav>  
+    <nav>
       <h2 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-4xl flex justify-center">
         Our Categories
       </h2>
@@ -18,5 +18,5 @@ export default function Categories() {
         }
       </section>
     </nav>
-  </>;
+  </>
 }

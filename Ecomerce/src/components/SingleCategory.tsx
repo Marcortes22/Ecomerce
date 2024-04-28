@@ -1,4 +1,5 @@
-import { categoryType } from "../types/Category";
+import { categoryType } from '../types/Category'
+
 export default function SingleCategory({ category }: { category: categoryType }) {
   return <>
     <a href="#">
