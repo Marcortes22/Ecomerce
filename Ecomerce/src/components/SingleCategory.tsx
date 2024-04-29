@@ -2,13 +2,8 @@ import { categoryType } from '../types/Category'
 
 export default function SingleCategory({ category }: { category: categoryType }) {
   return <>
-    <a href="#">
-      <article className="flex-col w-60 max-h-[500px]  p-1 bg-white rounded-lg shadow-md transform hover:scale-105 transition-transform duration-450 ease-in-out m-3">
-        <h3 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-2xl p-5 flex justify-center ">
-          {category.name}
-        </h3>
-        <img src={category.image} alt={category.name} className="w-full h-3/4 object-cover rounded" />
-      </article>
-    </a>
+  <button type='button' className='text-gray-900 border border-white hover:border-gray-200 dark:border-gray-900 dark:bg-gray-900 dark:hover:border-gray-700 bg-white focus:ring-4 focus:outline-none focus:ring-gray-300 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800'>
+    {category.name}
+  </button>
   </>
 }
