@@ -21,7 +21,8 @@ export async function createCategory(newCategory: categoryType) {
 export async function getAllCategories() {
   try {
     const response = await fetch(
-      `https://${import.meta.env.VITE_API_URL}.mockapi.io/api/v1/categories`,
+      // `https://${import.meta.env.VITE_API_URL}.mockapi.io/api/v1/categories`,
+          `https://661fe9df16358961cd95e466.mockapi.io/api/v1/categories`,
       {
         method: "GET",
         headers: { "Content-Type": "application/json" },

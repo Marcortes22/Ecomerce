@@ -6,9 +6,7 @@ export async function createProduct(
 ) {
   try {
     const response = await fetch(
-      `https://${
-        import.meta.env.VITE_API_URL
-      }.mockapi.io/api/v1/categories/${categoryId}/products`,
+       `https://${import.meta.env.VITE_API_URL}.mockapi.io/api/v1/categories/${categoryId}/products`,
       {
         method: "POST",
         headers: { "content-type": "application/json" },
@@ -27,7 +25,8 @@ export async function createProduct(
 export async function getAllProducts() {
   try {
     const response = await fetch(
-      `https://${import.meta.env.VITE_API_URL}.mockapi.io/api/v1/products`,
+      // `https://${import.meta.env.VITE_API_URL}.mockapi.io/api/v1/products`,
+      `https://661fe9df16358961cd95e466.mockapi.io/api/v1/products`,
       {
         method: "GET",
         headers: { "Content-Type": "application/json" },
