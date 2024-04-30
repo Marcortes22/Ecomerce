@@ -10,7 +10,7 @@ export function useGetCategoriesById(id: number) {
     async function getCategory() {
       try {
         const category = await getProductByCategory(id);
-        setCategory(category);
+        setCategory(category.id);
       } catch (error) {
         console.error("Error to get category", error);
       }
