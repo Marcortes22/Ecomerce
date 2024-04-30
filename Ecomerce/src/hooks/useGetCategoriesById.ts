@@ -1,6 +1,7 @@
 import { categoryType } from "../types/Category";
-import { getCategoryById } from "../services/Categories";
+
 import { useEffect, useState } from "react";
+import { getProductByCategory } from "../services/Products";
 
 
 export function useGetCategoriesById(id: number) {
@@ -8,7 +9,7 @@ export function useGetCategoriesById(id: number) {
   useEffect(() => {
     async function getCategory() {
       try {
-        const category = await getCategoryById(id);
+        const category = await getProductByCategory(id);
         setCategory(category);
       } catch (error) {
         console.error("Error to get category", error);
