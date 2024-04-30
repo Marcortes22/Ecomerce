@@ -1,4 +1,3 @@
-/* eslint-disable no-useless-catch */
 import { productType } from "../types/Product";
 
 export async function createProduct(

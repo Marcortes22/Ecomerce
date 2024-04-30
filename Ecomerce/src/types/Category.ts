@@ -1,5 +1,5 @@
 export type categoryType = {
-  id: number | undefined;
+  id: number;
   name: string;
   image: string;
 };
