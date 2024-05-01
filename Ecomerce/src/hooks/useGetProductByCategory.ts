@@ -21,5 +21,6 @@ export function useGetProductByCategory() {
       }
       getProduct();
     }, [id]);
+
     return { productByCategory, setId,showByCategory, setShowByCategory,id};
 }
