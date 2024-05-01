@@ -3,7 +3,7 @@ import { categoryType } from "../types/Category";
 import { getProductByCategory } from "../services/Products";
 
 export function useGetProductByCategory(id: number) {
-    const [productByCategory, setProductByCategory] = useState<categoryType | null>(null);
+    const [productByCategory, setProductByCategory] = useState<categoryType[]>([]);
 
     useEffect(() => {
       async function getProduct() {
