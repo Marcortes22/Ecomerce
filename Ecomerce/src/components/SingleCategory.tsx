@@ -4,10 +4,11 @@ import { categoryType } from '../types/Category'
 
 export default function SingleCategory({ category }: { category: categoryType }) {
 
-  const { setId } = useGetProductByCategory()
+  const { setId,setShowByCategory } = useGetProductByCategory()
 
   const handleClick = () => {
     setId(category.id)
+    setShowByCategory(true)
   }
 
   return <>
