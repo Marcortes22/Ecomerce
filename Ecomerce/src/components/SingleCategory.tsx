@@ -1,14 +1,14 @@
-import { useGetProductByCategory } from '../hooks/useGetProductByCategory'
+import { useContext } from 'react'
 import { categoryType } from '../types/Category'
+import ProductsContext from '../context/ProductsContext'
 
 
 export default function SingleCategory({ category }: { category: categoryType }) {
 
-  const { setId,setShowByCategory } = useGetProductByCategory()
+  const { setCategoryId } = useContext(ProductsContext)
 
   const handleClick = () => {
-    setId(category.id)
-    setShowByCategory(true)
+    setCategoryId(category.id)
   }
 
   return <>

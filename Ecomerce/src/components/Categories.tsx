@@ -4,6 +4,7 @@ import SingleCategory from "./SingleCategory";
 
 export default function Categories() {
   const { categories } = useGetCategories()
+  
   return <>
     <nav className="flex items-center justify-center py-4 md:py-8 flex-wrap">
         {
