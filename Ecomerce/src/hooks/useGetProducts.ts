@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { productType } from "../types/Product";
 import { getAllProducts } from "../services/Products";
+import ProductsContext from "../context/ProductsContext";
 
 export function useGetProduts() {
   const [products, setProducts] = useState<productType[]>([]);
@@ -16,5 +17,16 @@ export function useGetProduts() {
     getProducts();
   }, []);
 
-  return { products };
+  const { categoryId } = useContext(ProductsContext)
+  const [filteredProducts, setFilteredProducts] = useState<productType[]>([])
+
+  useEffect(() => {
+    if (categoryId === 0) {
+      setFilteredProducts(products)
+    } else {
+      setFilteredProducts(products.filter((product) => product.categoryId === categoryId))
+    }
+  }, [categoryId, products])
+
+  return { products, filteredProducts};
 }
