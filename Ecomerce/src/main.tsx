@@ -9,6 +9,10 @@ const router = createBrowserRouter([
     path: "/",
     element: <Home></Home>,
   },
+  {
+    path: "/home",
+    element: <Home></Home>,
+  },
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")!).render(

@@ -12,11 +12,8 @@ export default function SingleCategory({ category }: { category: categoryType })
   }
 
   return <>
-    <button type='button'
-      className=' bg-blue-500 hover:bg-blue-600 text-white px-4 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400 py-2.5 me-3 mb-3 font-semibold'
-      onClick={handleClick}
-    >
-      {category.name}
-    </button>
+    <li>
+      <a href='#' onClick={handleClick} className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700" aria-current="page">{category.name}</a>
+    </li>
   </>
 }

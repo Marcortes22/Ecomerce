@@ -28,5 +28,5 @@ export function useGetProduts() {
     }
   }, [categoryId, products])
 
-  return { products, filteredProducts};
+  return { products, filteredProducts}
 }
