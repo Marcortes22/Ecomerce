@@ -4,7 +4,6 @@ import { useGetProduts } from "../hooks/useGetProducts";
 
 export default function Products() {
   const { filteredProducts } = useGetProduts()
-
   return (
     <>
       <section className="grid grid-cols-4 gap-y-5">
