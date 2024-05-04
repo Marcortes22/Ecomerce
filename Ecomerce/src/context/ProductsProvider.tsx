@@ -1,5 +1,5 @@
-import { ReactNode, useState } from "react";
-import ProductsContext from "./ProductsContext";
+import { ReactNode, useState } from 'react'
+import ProductsContext from './ProductsContext'
 
 const ProductsProvider = ({ children }: { children: ReactNode }) => {
     const [categoryId, setCategoryId] = useState(0)
@@ -11,4 +11,4 @@ const ProductsProvider = ({ children }: { children: ReactNode }) => {
     )
 }
 
-export default ProductsProvider;
+export default ProductsProvider

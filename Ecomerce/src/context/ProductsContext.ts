@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 type ProductsContextType = {
     categoryId: number,
@@ -12,6 +12,6 @@ const ProductsContext = React.createContext<ProductsContextType>({
     setCategoryId: ()=>{},
     searchText: '',
     setSearchText: ()=>{},
-});
+})
 
-export default ProductsContext;
+export default ProductsContext

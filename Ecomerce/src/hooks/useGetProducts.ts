@@ -1,7 +1,7 @@
-import {useContext, useEffect, useState } from "react";
-import { productType } from "../types/Product";
-import { getAllProducts } from "../services/Products";
-import ProductsContext from "../context/ProductsContext";
+import {useContext, useEffect, useState } from 'react'
+import { productType } from '../types/Product'
+import { getAllProducts } from '../services/Products'
+import ProductsContext from '../context/ProductsContext'
 
 export function useGetProduts() {
 
@@ -17,28 +17,28 @@ export function useGetProduts() {
   useEffect(() => {
     async function getProducts() {
       try {
-        const products = await getAllProducts();
-        setProducts(products);
+        const products = await getAllProducts()
+        setProducts(products)
       } catch (error) {
-        console.error("Error to get products", error);
+        console.error('Error to get products', error)
       }
     }
-    getProducts();
-  }, []);
+    getProducts()
+  }, [])
 
   useEffect(() => {
     let result = products
   
     if (categoryId !== 0) {
-      result = result.filter((product) => product.categoryId === categoryId);
+      result = result.filter((product) => product.categoryId === categoryId)
     }
   
     if (searchText) {
-      result = result.filter((product) => product.title.toLowerCase().includes(searchText.toLowerCase()));
+      result = result.filter((product) => product.title.toLowerCase().includes(searchText.toLowerCase()))
     }
   
-    setFilteredProducts(result);
-  }, [categoryId, searchText, products]);
+    setFilteredProducts(result)
+  }, [categoryId, searchText, products])
 
 
   return { products, filteredProducts,handleChange}
