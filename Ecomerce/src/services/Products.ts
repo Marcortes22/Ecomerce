@@ -81,8 +81,8 @@ export async function getProductByCategory(categoryId: number) {
 }
 
 export async function updateProduct(
-  categoryId: number,
-  productId: number,
+  categoryId: string,
+  productId: string,
   Updatedproduct: productType
 ) {
   try {
