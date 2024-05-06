@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useGetProdutById } from "../hooks/Products/useGetProductById";
 import Gallery from "../components/Gallery";
 import Spinner from "../components/Spinner";
@@ -54,6 +54,12 @@ export default function DetailProduct() {
                 <Rating rating={product.rating}></Rating>
               </div>
             </div>
+
+            <Link to={`/UpdateProduct/${product.categoryId}/${product.id}`}>
+              <button className="  bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400">
+                update
+              </button>
+            </Link>
           </article>
         </section>
       ) : (
