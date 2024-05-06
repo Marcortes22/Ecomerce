@@ -1,7 +1,7 @@
 import { ChangeEvent, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
-import { createProduct, getAllProducts } from '../services/Products'
-import { productType } from '../types/Product'
+import { createProduct, getAllProducts } from '../../services/Products'
+import { productType } from '../../types/Product'
 import { useNavigate } from 'react-router-dom'
 
 export default function usePostProducts() {

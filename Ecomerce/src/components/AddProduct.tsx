@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import usePostProducts from '../hooks/usePostProducts'
+import usePostProducts from '../hooks/Products/usePostProducts'
 
 export default function AddProduct() {
 

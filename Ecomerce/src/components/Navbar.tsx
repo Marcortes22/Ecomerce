@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { useGetCategories } from '../hooks/useGetCategories'
+import { useGetCategories } from '../hooks/Categories/useGetCategories'
 import { categoryType } from '../types/Category'
 import Search from './Search'
 import SingleCategory from './SingleCategory'
@@ -10,7 +10,7 @@ function Navbar() {
     <nav className='bg-white border-gray-200 dark:bg-gray-900'>
       <div className='max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4'>
         <Link
-          to='/'
+          to='/home'
           className='flex items-center space-x-3 rtl:space-x-reverse'>
           <img
             className='w-8 h-8 rounded-full'
