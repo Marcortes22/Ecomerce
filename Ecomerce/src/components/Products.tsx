@@ -1,6 +1,6 @@
 import { productType } from '../types/Product'
 import SingleProduct from './SingleProduct'
-import { useGetProduts } from '../hooks/useGetProducts'
+import { useGetProduts } from '../hooks/Products/useGetProducts'
 import { Link } from 'react-router-dom'
 
 export default function Products() {

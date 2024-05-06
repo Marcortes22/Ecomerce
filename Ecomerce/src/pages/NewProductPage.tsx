@@ -1,6 +1,6 @@
 import AddProduct from '../components/AddProduct'
 
-export default function NewProduct() {
+export default function NewProductPage() {
     return <>
         <AddProduct />
     </>

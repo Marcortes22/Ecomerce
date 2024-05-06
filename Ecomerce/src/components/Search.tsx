@@ -1,4 +1,4 @@
-import { useGetProduts } from "../hooks/useGetProducts";
+import { useGetProduts } from "../hooks/Products/useGetProducts";
 
 export default function Search() {
   const { handleChange } = useGetProduts();
