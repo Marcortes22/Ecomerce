@@ -41,7 +41,7 @@ export async function getAllProducts() {
   }
 }
 
-export async function getProductById(categoryId: number, productId: number) {
+export async function getProductById(categoryId: string, productId: string) {
   try {
     const response = await fetch(
       `https://${

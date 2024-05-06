@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { productType } from "../types/Product";
 
 export default function SingleProduct({ product }: { product: productType }) {
@@ -15,9 +16,11 @@ export default function SingleProduct({ product }: { product: productType }) {
             <p className="text-gray-600 ">$ {product.price}</p>
           </div>
           <div className="flex justify-center items-center mt-4 h-max ">
-            <button className="  bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400">
-              Show more
-            </button>
+            <Link to={`/product/${product.categoryId}/${product.id}`}>
+              <button className="  bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400">
+                Show more
+              </button>
+            </Link>
           </div>
         </div>
       </article>
