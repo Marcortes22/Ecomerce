@@ -22,6 +22,7 @@ export default function usePutProduct(categoryId: string, productId: string) {
     setValue("brand", product?.brand);
     setValue("images", product?.images);
     setImages(product?.images || [""]);
+    setValue("categoryId", product?.categoryId);
   }, [product]);
 
   const OnSubmit = handleSubmit(async (data) => {
