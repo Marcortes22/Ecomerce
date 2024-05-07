@@ -55,11 +55,17 @@ export default function DetailProduct() {
               </div>
             </div>
 
-            <Link to={`/UpdateProduct/${product.categoryId}/${product.id}`}>
-              <button className="  bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400">
-                update
+            <Link to='/'>
+              <button className="py-2.5 px-5 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+                Back
               </button>
             </Link>
+            <Link to={`/UpdateProduct/${product.categoryId}/${product.id}`}>
+              <button className="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400">
+                Update
+              </button>
+            </Link>
+
           </article>
         </section>
       ) : (
