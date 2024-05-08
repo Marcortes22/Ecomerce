@@ -1,14 +1,14 @@
 import { useGetProduts } from "../hooks/Products/useGetProducts";
 
-export default function Search() {
+export default function Search({ isOpen }: { isOpen: boolean }) {
   const { handleChange } = useGetProduts();
   return (
     <>
-      <div className="flex md:order-2">
-        <div className="relative hidden md:block">
+      <div className="flex ">
+        <div className="relative">
           <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
             <svg
-              className="w-4 h-4 text-gray-500 dark:text-gray-400"
+              className="w-6 h-6 text-gray-500 dark:text-gray-400"
               aria-hidden="true"
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -23,7 +23,9 @@ export default function Search() {
           <input
             type="text"
             onChange={handleChange}
-            className="block w-full p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            className={`"block md:w-full   p-2 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"  ${
+              isOpen ? "w-[120px]" : "w-full"
+            }`}
             placeholder="Search"
           />
         </div>

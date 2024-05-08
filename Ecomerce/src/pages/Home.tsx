@@ -7,7 +7,7 @@ export default function Home() {
     <>
       <ProductsProvider>
         <Navbar></Navbar>
-        <Products></Products>
+        {/* <Products></Products> */}
       </ProductsProvider>
     </>
   );
