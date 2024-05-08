@@ -1,99 +1,109 @@
-import { categoryType } from "../types/Category";
+import { categoryType } from '../types/Category'
 
 export async function createCategory(newCategory: categoryType) {
+  let response 
   try {
-    const response = await fetch(
+   response = await fetch(
       `https://${import.meta.env.VITE_API_URL}.mockapi.io/api/v1/categories`,
       {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        // Send your data in the request body as JSON
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
         body: JSON.stringify(newCategory),
       }
-    );
-    if (!(await response).ok) throw new Error("Error al enviar los datos");
-    const responseData: categoryType = await response.json();
-    return responseData;
-  } catch (error) {
-    throw error;
+    )
+
+    if (!response.ok) throw new Error('Error sending data')
+
+    const responseData: categoryType = await response.json()
+    return responseData
+  } catch (e) {
+    
+    console.error(e)
+    throw e
+  } finally {
+    console.log('Finished creating category')
   }
 }
 
 export async function getAllCategories() {
+  let response
   try {
-    const response = await fetch(
-      `https://${import.meta.env.VITE_API_URL}.mockapi.io/api/v1/categories`,
-      {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-      }
-    );
-    if (!response.ok) throw new Error("Error to get categories");
-    const categories: categoryType[] = await response.json();
-    return categories;
-  } catch (error) {
-    throw error;
+    response = await fetch(
+      `https://${import.meta.env.VITE_API_URL}.mockapi.io/api/v1/categories`
+    )
+
+    if (!response.ok) throw new Error('Error fetching data')
+
+    const responseData: categoryType[] = await response.json()
+    return responseData
+  } catch (e) {
+    console.error(e)
+    throw e
+  } finally {
+    console.log('Finished fetching categories')
   }
 }
 
-export async function getCategoryById(id: number) {
+export async function getCategoryById(id: string) {
+  let response
   try {
-    const response = await fetch(
-      `https://${
-        import.meta.env.VITE_API_URL
-      }.mockapi.io/api/v1/categories/${id}`,
-      {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
-      }
-    );
-    if (await !response.ok) throw new Error("Error to get category");
-    const category = await response.json();
-    return category;
-  } catch (error) {
-    throw error;
+   response = await fetch(
+      `https://${import.meta.env.VITE_API_URL}.mockapi.io/api/v1/categories/${id}`
+    )
+
+    if (!response.ok) throw new Error('Error fetching data')
+
+    const responseData: categoryType = await response.json()
+    return responseData
+  } catch (e) {
+    console.error(e)
+    throw e
+  } finally {
+    console.log('Finished fetching category')
   }
 }
 
-export async function updateCategory(
-  id: number,
-  categoryUpdated: categoryType
-) {
+export async function updateCategory(id: string, updatedCategory: categoryType) {
+  let response
   try {
-    const response = await fetch(
-      `https://${
-        import.meta.env.VITE_API_URL
-      }.mockapi.io/api/v1/categories/${id}`,
+    response = await fetch(
+      `https://${import.meta.env.VITE_API_URL}.mockapi.io/api/v1/categories/${id}`,
       {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        // Send your data in the request body as JSON
-        body: JSON.stringify(categoryUpdated),
+        method: 'PUT',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify(updatedCategory),
       }
-    );
-    if (await !response.ok) throw new Error("Error to get category");
-    const category = await response.json();
-    return category;
-  } catch (error) {
-    throw error;
+    )
+
+    if (!response.ok) throw new Error('Error updating data')
+
+    const responseData: categoryType = await response.json()
+    return responseData
+  } catch (e) {
+    console.error(e)
+    throw e
+  } finally {
+    console.log('Finished updating category')
   }
 }
 
-export async function deleteCategory(id: number) {
+export async function deleteCategory(id: string) {
+  let response
   try {
-    const response = await fetch(
-      `https://${
-        import.meta.env.VITE_API_URL
-      }.mockapi.io/api/v1/categories/${id}`,
+     response = await fetch(
+      `https://${import.meta.env.VITE_API_URL}.mockapi.io/api/v1/categories/${id}`,
       {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
+        method: 'DELETE',
       }
-    );
-    if (await !response.ok) throw new Error("Error to get delete");
-    const category = await response.json();
-    return category;
-  } catch (error) {
-    throw error;
+    )
+
+    if (!response.ok) throw new Error('Error deleting data')
+
+    return true
+  } catch (e) {
+    console.error(e)
+    throw e
+  } finally { 
+    console.log('Finished deleting category')
   }
 }
