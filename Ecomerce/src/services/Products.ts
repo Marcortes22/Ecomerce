@@ -1,125 +1,178 @@
-import { productType } from "../types/Product";
+import { productType } from '../types/Product'
 
 export async function createProduct(
   categoryId: number,
   newProduct: productType
 ) {
+  let response
   try {
-    const response = await fetch(
-      `https://${
-        import.meta.env.VITE_API_URL
-      }.mockapi.io/api/v1/categories/${categoryId}/products`,
+    response = await fetch(
+      `https://${import.meta.env.VITE_API_URL}.mockapi.io/api/v1/categories/${categoryId}/products`,
       {
-        method: "POST",
-        headers: { "content-type": "application/json" },
-        // Send your data in the request body as JSON
+        method: 'POST',
+        headers: { 'content-type': 'application/json' },
         body: JSON.stringify(newProduct),
       }
-    );
-    if (!(await response).ok) throw new Error("Error to create product");
-    const responseData: productType = await response.json();
-    return responseData;
+    )
+    if (!response.ok) throw new Error('Error to create product')
   } catch (error) {
-    throw error;
+    console.error('Error occurred while creating product: ', error)
+    throw error
+  } finally {
+    console.log('Finished creating product')
+  }
+
+  try {
+    const responseData: productType = await response.json()
+    return responseData
+  } catch (error) {
+    console.error('Error occurred while parsing response: ', error)
+    throw error
   }
 }
 
-export async function getAllProducts() {
+export async function getAllProducts(){
+  let response
   try {
-    const response = await fetch(
+    response = await fetch(
       `https://${import.meta.env.VITE_API_URL}.mockapi.io/api/v1/products`,
       {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
       }
-    );
-    if (!response.ok) throw new Error("Error to get products");
-    const products: productType[] = await response.json();
-    return products;
+    )
+    if (!response.ok) throw new Error('Error to get products')
   } catch (error) {
-    throw error;
+    console.error('Error occurred while fetching products: ', error)
+    throw error
+  } finally {
+    console.log('Finished fetching products')
+  }
+
+  try {
+    const responseData: productType[] = await response.json()
+    return responseData
+  } catch (error) {
+    console.error('Error occurred while parsing response: ', error)
+    throw error
   }
 }
 
-export async function getProductById(categoryId: string, productId: string) {
+export async function getProductById(
+  categoryId: string,
+  productId: string
+) {
+  let response
   try {
-    const response = await fetch(
-      `https://${
-        import.meta.env.VITE_API_URL
-      }.mockapi.io/api/v1/categories/${categoryId}/products/${productId}`,
+    response = await fetch(
+      `https://${import.meta.env.VITE_API_URL}.mockapi.io/api/v1/categories/${categoryId}/products/${productId}`,
       {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
       }
-    );
-    if (await !response.ok) throw new Error("Error to get product");
-    const product = await response.json();
-    return product;
+    )
+    if (!response.ok) throw new Error('Error to get product')
   } catch (error) {
-    throw error;
+    console.error('Error occurred while fetching product: ', error)
+    throw error
+  } finally {
+    console.log('Finished fetching product')
+  } 
+  try {
+    const responseData: productType = await response.json()
+    return responseData
+  } catch (error) {
+    console.error('Error occurred while parsing response: ', error)
+    throw error
   }
 }
 
-export async function getProductByCategory(categoryId: number) {
+export async function getProductByCategory(
+  categoryId: number
+) {
+  let response
   try {
-    const response = await fetch(
-      `https://${
-        import.meta.env.VITE_API_URL
-      }.mockapi.io/api/v1/categories/${categoryId}/products`,
+    response = await fetch(
+      `https://${import.meta.env.VITE_API_URL}.mockapi.io/api/v1/categories/${categoryId}/products`,
       {
-        method: "GET",
-        headers: { "Content-Type": "application/json" },
+        method: 'GET',
+        headers: { 'Content-Type': 'application/json' },
       }
-    );
-    if (await !response.ok)
-      throw new Error("Error to get products by category");
-    const products = await response.json();
-    return products;
+    )
+    if (!response.ok) throw new Error('Error to get products by category')
   } catch (error) {
-    throw error;
+    console.error('Error occurred while fetching products by category: ', error)
+    throw error
+  } finally {
+    console.log('Finished fetching products by category')
+  }
+
+  try {
+    const responseData: productType[] = await response.json()
+    return responseData
+  } catch (error) {
+    console.error('Error occurred while parsing response: ', error)
+    throw error
   }
 }
 
 export async function updateProduct(
   categoryId: string,
   productId: string,
-  Updatedproduct: productType
+  updatedProduct: productType
 ) {
+  let response
   try {
-    const response = await fetch(
-      `https://${
-        import.meta.env.VITE_API_URL
-      }.mockapi.io/api/v1/categories/${categoryId}/products/${productId}`,
+    response = await fetch(
+      `https://${import.meta.env.VITE_API_URL}.mockapi.io/api/v1/categories/${categoryId}/products/${productId}`,
       {
-        method: "PUT",
-        headers: { "Content-Type": "application/json" },
-        // Send your data in the request body as JSON
-        body: JSON.stringify(Updatedproduct),
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(updatedProduct),
       }
-    );
-    if (await !response.ok) throw new Error("Error to update product");
-    const product = await response.json();
-    return product;
+    )
+    if (!response.ok) throw new Error('Error updating product')
   } catch (error) {
-    throw error;
+    console.error('Error occurred while updating product: ', error)
+    throw error
+  } finally {
+    console.log('Finished updating product')
+  }
+
+  try {
+    const responseData: productType = await response.json()
+    return responseData
+  } catch (error) {
+    console.error('Error occurred while parsing response: ', error)
+    throw error
   }
 }
 
-export async function deleteProduct(categoryId: number, productId: number) {
+export async function deleteProduct(
+  categoryId: number, 
+  productId: number) {
+  let response
   try {
-    const response = await fetch(
-      `https://${
-        import.meta.env.VITE_API_URL
-      }.mockapi.io/api/v1/categories/${categoryId}/products/${productId}`,
+    response = await fetch(
+      `https://${import.meta.env.VITE_API_URL}.mockapi.io/api/v1/categories/${categoryId}/products/${productId}`,
       {
-        method: "DELETE",
-        headers: { "Content-Type": "application/json" },
+        method: 'DELETE',
+        headers: { 'Content-Type': 'application/json' },
       }
-    );
-    if (await !response.ok) throw new Error("Error to delete");
-    const product = await response.json();
-    return product;
+    )
+    if (!response.ok) throw new Error('Error deleting product')
   } catch (error) {
-    throw error;
+    console.error('Error occurred while deleting product: ', error)
+    throw error
+  } finally {
+    console.log('Finished deleting product')
+  }
+
+  try {
+    const responseData: productType = await response.json()
+    return responseData
+  } catch (error) {
+    console.error('Error occurred while parsing response: ', error)
+    throw error
   }
 }
