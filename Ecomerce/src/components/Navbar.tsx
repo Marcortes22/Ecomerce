@@ -15,13 +15,13 @@ function Navbar() {
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
       <div className=" flex  items-center justify-between md:justify-center mx-auto p-4 md:gap-5">
         <div
-          className={` flex flex-wrap  items-center  ${
-            isOpen ? " flex-col gap-5" : "gap-5"
+          className={` flex flex-wrap gap-5 items-center  ${
+            isOpen ? " flex-col " : "flex-row"
           }`}
         >
           <Link to="/" className="flex items-center gap-x-3">
             <img
-              className="w-6 h-6 rounded-full"
+              className="w-8 h-8 rounded-full"
               src="https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small_2x/user-profile-icon-free-vector.jpg"
               alt="user photo"
             />
