@@ -4,7 +4,7 @@ import { productType } from "../types/Product";
 export default function SingleProduct({ product }: { product: productType }) {
   return (
     <>
-      <article className=" flex  flex-col w-80 max-h-[500px]  p-4 bg-white rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300 ease-in-out">
+      <article className=" flex  flex-col w-80 h-[470px] max-h-[500px]  p-4 bg-white rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300 ease-in-out">
         <img
           className="w-full h-3/4 object-cover rounded-t-lg "
           alt="Card Image"

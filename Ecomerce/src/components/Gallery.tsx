@@ -19,13 +19,13 @@ export default function Gallery({ images }: { images: Array<string> }) {
       <div className="flex flex-col gap-4">
         <div>
           <img
-            className="h-auto max-w-[400px] rounded-lg"
+            className="h-auto max-w-[350px] md:max-w-[400px] rounded-lg"
             src={current}
             alt=""
           />
         </div>
 
-        <div className="flex  gap-4">
+        <div className="flex justify-center   gap-4">
           {secondary?.map((item, id) => (
             <div key={id}>
               <img

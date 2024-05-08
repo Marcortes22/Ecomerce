@@ -22,7 +22,7 @@ export default function DetailProduct() {
         <section>
           <Navbar></Navbar>
 
-          <article className="w-full  flex mt-10  justify-center px-40 gap-10">
+          <article className="w-full flex flex-col md:flex-row mt-10  justify-center px-5 gap-10">
             <div className=" flex justify-center">
               <Gallery images={product.images}></Gallery>
             </div>
@@ -54,9 +54,10 @@ export default function DetailProduct() {
                 <Rating rating={product.rating}></Rating>
               </div>
             </div>
-
-            <Link to='/'>
-              <button className="py-2.5 px-5 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
+          </article>
+          <div className=" mt-10 flex justify-center gap-5">
+            <Link to="/">
+              <button className="py-2 px-4 mb-2   text-gray-900 focus:outline-none bg-white rounded-full border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700">
                 Back
               </button>
             </Link>
@@ -65,8 +66,7 @@ export default function DetailProduct() {
                 Update
               </button>
             </Link>
-
-          </article>
+          </div>
         </section>
       ) : (
         <Spinner></Spinner>
