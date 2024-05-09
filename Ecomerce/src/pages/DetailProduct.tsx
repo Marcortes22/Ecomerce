@@ -4,6 +4,7 @@ import Gallery from "../components/Gallery";
 import Spinner from "../components/Spinner";
 import Rating from "../components/Rating";
 import Navbar from "../components/Navbar";
+import Modal from "../components/Modal";
 export default function DetailProduct() {
   const { categoryId, productId } = useParams<{
     categoryId: string;
@@ -64,11 +65,13 @@ export default function DetailProduct() {
                 Update
               </button>
             </Link>
+            <Modal />
           </div>
-        </section>
+        </section >
       ) : (
         <Spinner></Spinner>
-      )}
+      )
+      }
     </>
   );
 }
