@@ -31,11 +31,11 @@ export async function createProduct(
   }
 }
 
-export async function getAllProducts(){
+export async function getAllProducts(pagerNumber: number){
   let response
   try {
     response = await fetch(
-      `https://${import.meta.env.VITE_API_URL}.mockapi.io/api/v1/products`,
+      `https://${import.meta.env.VITE_API_URL}.mockapi.io/api/v1/products?page=${pagerNumber}&limit=5`,
       {
         method: 'GET',
         headers: { 'Content-Type': 'application/json' },

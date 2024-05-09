@@ -5,6 +5,8 @@ type ProductsContextType = {
     setCategoryId: (id: number)=>void,
     searchText: string,
     setSearchText: (text: string)=>void,
+    pageNumber: number,
+    setPageNumber: (value: number)=>void,
 }
 //COMPLETAR EL CONTEXT CON LO QUE NECESITE
 const ProductsContext = React.createContext<ProductsContextType>({
@@ -12,6 +14,9 @@ const ProductsContext = React.createContext<ProductsContextType>({
     setCategoryId: ()=>{},
     searchText: '',
     setSearchText: ()=>{},
+    pageNumber: 1,
+    setPageNumber: (value: number)=>{}
+    
 })
 
 export default ProductsContext

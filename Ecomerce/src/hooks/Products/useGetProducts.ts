@@ -6,7 +6,7 @@ import ProductsContext from '../../context/ProductsContext'
 export function useGetProduts() {
 
   const [products, setProducts] = useState<productType[]>([])
-  const { categoryId,searchText,setSearchText } = useContext(ProductsContext)
+  const { categoryId,searchText,setSearchText, pageNumber } = useContext(ProductsContext)
   const [filteredProducts, setFilteredProducts] = useState<productType[]>([])
 
   const handleChange = (e: { target: { value: string; }; }) => {
@@ -17,14 +17,14 @@ export function useGetProduts() {
   useEffect(() => {
     async function getProducts() {
       try {
-        const products = await getAllProducts()
+        const products = await getAllProducts(pageNumber)
         setProducts(products)
       } catch (error) {
         console.error('Error to get products', error)
       }
     }
     getProducts()
-  }, [])
+  }, [pageNumber])
 
   useEffect(() => {
     let result = products
