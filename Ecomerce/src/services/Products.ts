@@ -1,4 +1,5 @@
 import { productType } from '../types/Product'
+import Sleep from '../utils/Sleep'
 
 export async function createProduct(
   categoryId: number,
@@ -24,6 +25,7 @@ export async function createProduct(
 
   try {
     const responseData: productType = await response.json()
+    Sleep(4000)
     return responseData
   } catch (error) {
     console.error('Error occurred while parsing response: ', error)
@@ -51,6 +53,7 @@ export async function getAllProducts(){
 
   try {
     const responseData: productType[] = await response.json()
+    Sleep(4000)
     return responseData
   } catch (error) {
     console.error('Error occurred while parsing response: ', error)
@@ -80,6 +83,7 @@ export async function getProductById(
   } 
   try {
     const responseData: productType = await response.json()
+    Sleep(4000)
     return responseData
   } catch (error) {
     console.error('Error occurred while parsing response: ', error)
@@ -109,6 +113,7 @@ export async function getProductByCategory(
 
   try {
     const responseData: productType[] = await response.json()
+    Sleep(4000)
     return responseData
   } catch (error) {
     console.error('Error occurred while parsing response: ', error)
@@ -141,6 +146,7 @@ export async function updateProduct(
 
   try {
     const responseData: productType = await response.json()
+    Sleep(4000)
     return responseData
   } catch (error) {
     console.error('Error occurred while parsing response: ', error)
@@ -170,6 +176,7 @@ export async function deleteProduct(
 
   try {
     const responseData: productType = await response.json()
+    Sleep(4000)
     return responseData
   } catch (error) {
     console.error('Error occurred while parsing response: ', error)

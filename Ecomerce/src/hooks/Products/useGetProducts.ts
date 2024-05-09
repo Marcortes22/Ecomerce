@@ -6,13 +6,9 @@ import ProductsContext from '../../context/ProductsContext'
 export function useGetProduts() {
 
   const [products, setProducts] = useState<productType[]>([])
-  const { categoryId,searchText,setSearchText } = useContext(ProductsContext)
+  const { categoryId,searchText } = useContext(ProductsContext)
   const [filteredProducts, setFilteredProducts] = useState<productType[]>([])
 
-  const handleChange = (e: { target: { value: string; }; }) => {
-    console.log(e.target.value)
-    setSearchText(e.target.value)
-  }
 
   useEffect(() => {
     async function getProducts() {
@@ -41,5 +37,5 @@ export function useGetProduts() {
   }, [categoryId, searchText, products])
 
 
-  return { products, filteredProducts,handleChange}
+  return { products, filteredProducts}
 }
