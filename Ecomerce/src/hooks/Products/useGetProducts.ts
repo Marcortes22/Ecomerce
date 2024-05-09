@@ -1,41 +1,39 @@
-import {useContext, useEffect, useState } from 'react'
-import { productType } from '../../types/Product'
-import { getAllProducts } from '../../services/Products'
-import ProductsContext from '../../context/ProductsContext'
+import { useContext, useEffect, useState } from "react";
+import { productType } from "../../types/Product";
+import { getAllProducts, getProductByCategory } from "../../services/Products";
+import ProductsContext from "../../context/ProductsContext";
 
 export function useGetProduts() {
-
-  const [products, setProducts] = useState<productType[]>([])
-  const { categoryId,searchText } = useContext(ProductsContext)
-  const [filteredProducts, setFilteredProducts] = useState<productType[]>([])
-
+  const [products, setProducts] = useState<productType[]>([]);
+  const { categoryId, page } = useContext(ProductsContext);
+  const [filteredProducts, setFilteredProducts] = useState<productType[]>([]);
 
   useEffect(() => {
     async function getProducts() {
       try {
-        const products = await getAllProducts()
-        setProducts(products)
+        const productsResult = await getProductByCategory(0, 1);
+        setProducts(productsResult);
+        setFilteredProducts(productsResult);
+        console.log(productsResult);
       } catch (error) {
-        console.error('Error to get products', error)
+        console.error("Error to get products", error);
       }
     }
-    getProducts()
-  }, [])
+    getProducts();
+  }, []);
 
   useEffect(() => {
-    let result = products
-  
-    if (categoryId !== 0) {
-      result = result.filter((product) => product.categoryId === categoryId)
+    async function getProducts() {
+      try {
+        const productsResult = await getProductByCategory(categoryId, page);
+        setFilteredProducts(productsResult);
+        console.log(productsResult);
+      } catch (error) {
+        console.error("Error to get products", error);
+      }
     }
-  
-    if (searchText) {
-      result = result.filter((product) => product.title.toLowerCase().includes(searchText.toLowerCase()))
-    }
-  
-    setFilteredProducts(result)
-  }, [categoryId, searchText, products])
+    getProducts();
+  }, [categoryId, page]);
 
-
-  return { products, filteredProducts}
+  return { products, filteredProducts };
 }
