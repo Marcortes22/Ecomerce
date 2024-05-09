@@ -34,7 +34,7 @@ export default function usePutProduct(categoryId: string, productId: string) {
 
     try {
       await updateProduct(categoryId, productId, productData);
-      navigate("/");
+      navigate(`/product/${categoryId}/${productId}`);
     } catch (error) {
       console.error("Error uptating product:", error);
     }
