@@ -20,8 +20,6 @@ export default function DetailProduct() {
     <>
       {product ? (
         <section>
-          <Navbar></Navbar>
-
           <article className="w-full flex flex-col md:flex-row mt-10  justify-center px-5 gap-10">
             <div className=" flex justify-center">
               <Gallery images={product.images}></Gallery>
