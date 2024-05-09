@@ -3,8 +3,7 @@ import { useGetProdutById } from "../hooks/Products/useGetProductById";
 import Gallery from "../components/Gallery";
 import Spinner from "../components/Spinner";
 import Rating from "../components/Rating";
-import Navbar from "../components/Navbar";
-import Modal from "../components/Modal";
+import DeleteProducModal from "../components/DeleteProductModal";
 export default function DetailProduct() {
   const { categoryId, productId } = useParams<{
     categoryId: string;
@@ -65,7 +64,7 @@ export default function DetailProduct() {
                 Update
               </button>
             </Link>
-            <Modal />
+            <DeleteProducModal productId={product.id} categoryId={product.categoryId} name={product.title} />
           </div>
         </section >
       ) : (
