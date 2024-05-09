@@ -2,6 +2,7 @@ import { productType } from "../types/Product";
 import SingleProduct from "./SingleProduct";
 import { useGetProduts } from "../hooks/Products/useGetProducts";
 import { Link } from "react-router-dom";
+import Pagination from "./Pagination";
 
 export default function Products() {
   const { filteredProducts } = useGetProduts();
@@ -21,6 +22,7 @@ export default function Products() {
           ></SingleProduct>
         ))}
       </section>
+      <Pagination></Pagination>
     </>
   );
 }
