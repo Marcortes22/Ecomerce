@@ -92,7 +92,11 @@ export async function getProductById(categoryId: string, productId: string) {
   }
 }
 
-export async function getProductByCategory(categoryId: number, page: number) {
+export async function getProductByCategory(
+  categoryId: number,
+  page: number,
+  title: string
+) {
   let endpoint;
 
   if (categoryId !== 0) {
@@ -107,6 +111,9 @@ export async function getProductByCategory(categoryId: number, page: number) {
   const url = new URL(`${endpoint}`);
   url.searchParams.append("limit", "5");
   url.searchParams.append("page", page.toString());
+  if (title !== "") {
+    url.searchParams.append("title", title);
+  }
 
   let response;
   try {
