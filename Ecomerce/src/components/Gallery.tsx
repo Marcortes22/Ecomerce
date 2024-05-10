@@ -5,7 +5,6 @@ export default function Gallery({ images }: { images: Array<string> }) {
   const [secondary, setSecondary] = useState<string[]>([]);
 
   useEffect(() => {
-    console.log(current);
     const secondaryPhotos = images.filter((item) => item != current);
     setSecondary(secondaryPhotos);
   }, [current]);
