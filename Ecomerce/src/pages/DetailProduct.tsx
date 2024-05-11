@@ -28,7 +28,7 @@ export default function DetailProduct() {
               <h1 className="text">{product.title}</h1>
 
               <div>
-                <p>Price: {product.price}</p>
+                <p>Price: ${product.price}</p>
               </div>
 
               <div>
@@ -64,13 +64,16 @@ export default function DetailProduct() {
                 Update
               </button>
             </Link>
-            <DeleteProducModal productId={product.id} categoryId={product.categoryId} name={product.title} />
+            <DeleteProducModal
+              productId={product.id}
+              categoryId={product.categoryId}
+              name={product.title}
+            />
           </div>
-        </section >
+        </section>
       ) : (
         <Spinner></Spinner>
-      )
-      }
+      )}
     </>
   );
 }
