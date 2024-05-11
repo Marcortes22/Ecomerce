@@ -30,8 +30,7 @@ export default function usePutProduct(categoryId: string, productId: string) {
     console.log("Submitted");
 
     const productData: productType = JSON.parse(JSON.stringify(data));
-    console.log(productData);
-
+    
     try {
       await updateProduct(categoryId, productId, productData);
       navigate(`/product/${categoryId}/${productId}`);
