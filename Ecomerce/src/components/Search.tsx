@@ -1,11 +1,13 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import ProductsContext from "../context/ProductsContext";
 
 export default function Search({ isOpen }: { isOpen: boolean }) {
   const { setSearchText } = useContext(ProductsContext);
-
+  const [time, setTime] = useState(1500);
   const handleChange = (e: { target: { value: string } }) => {
-    setSearchText(e.target.value);
+    setTimeout(() => {
+      setSearchText(e.target.value);
+    }, time);
   };
 
   return (
