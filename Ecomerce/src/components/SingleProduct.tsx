@@ -6,7 +6,7 @@ export default function SingleProduct({ product }: { product: productType }) {
     <>
       <article className=" flex  flex-col w-80 h-[470px] max-h-[500px]  p-4 bg-white rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300 ease-in-out">
         <img
-          className="w-full h-3/4 object-cover rounded-t-lg "
+          className="w-full  max-h-[288px] max-w-[288px] object-cover rounded-t-lg "
           alt="Card Image"
           src={product.images[0]}
         ></img>

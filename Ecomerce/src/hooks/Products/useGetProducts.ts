@@ -6,6 +6,7 @@ import ProductsContext from "../../context/ProductsContext";
 export function useGetProduts() {
   const { categoryId, page, searchText } = useContext(ProductsContext);
   const [filteredProducts, setFilteredProducts] = useState<productType[]>([]);
+  const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     async function getProducts() {
@@ -16,6 +17,7 @@ export function useGetProduts() {
           searchText
         );
         setFilteredProducts(productsResult);
+        setLoading(true);
       } catch (error) {
         console.error("Error to get products", error);
       }
@@ -24,6 +26,7 @@ export function useGetProduts() {
   }, []);
 
   useEffect(() => {
+    setLoading(false);
     async function getProducts() {
       try {
         const productsResult = await getProductByCategory(
@@ -32,6 +35,7 @@ export function useGetProduts() {
           searchText
         );
         setFilteredProducts(productsResult);
+        setLoading(true);
       } catch (error) {
         console.error("Error to get products", error);
       }
@@ -39,5 +43,5 @@ export function useGetProduts() {
     getProducts();
   }, [categoryId, page, searchText]);
 
-  return { filteredProducts };
+  return { filteredProducts, loading };
 }
