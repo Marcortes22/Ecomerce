@@ -26,7 +26,7 @@ function Navbar() {
               alt="user photo"
             />
             <span className="self-center md:text-xl font-semibold whitespace-nowrap dark:text-white">
-              Homely
+              Home
             </span>
           </Link>
           <Search isOpen={isOpen} />

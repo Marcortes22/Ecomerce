@@ -9,23 +9,6 @@ export function useGetProduts() {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    async function getProducts() {
-      try {
-        const productsResult = await getProductByCategory(
-          categoryId,
-          page,
-          searchText
-        );
-        setFilteredProducts(productsResult);
-        setLoading(true);
-      } catch (error) {
-        console.error("Error to get products", error);
-      }
-    }
-    getProducts();
-  }, []);
-
-  useEffect(() => {
     setLoading(false);
     async function getProducts() {
       try {
