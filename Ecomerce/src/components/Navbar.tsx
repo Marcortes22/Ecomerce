@@ -3,7 +3,7 @@ import { useGetCategories } from "../hooks/Categories/useGetCategories";
 import { categoryType } from "../types/Category";
 import Search from "./Search";
 import SingleCategory from "./SingleCategory";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import CategoriesIcon from "./CategoriesIcon";
 import { useAuth0 } from "@auth0/auth0-react";
 import HomeIcon from "./HomeIcon";
@@ -14,9 +14,6 @@ function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
 
   const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
-  useEffect(() => {
-    console.log(user);
-  }, [isAuthenticated]);
 
   return (
     <nav className="bg-white border-gray-200 dark:bg-gray-900">
