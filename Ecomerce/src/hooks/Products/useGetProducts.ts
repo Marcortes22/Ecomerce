@@ -21,22 +21,6 @@ export function useGetProduts() {
       }
     }
     getProducts();
-  }, []);
-
-  useEffect(() => {
-    async function getProducts() {
-      try {
-        const productsResult = await getProductByCategory(
-          categoryId,
-          page,
-          searchText
-        );
-        setFilteredProducts(productsResult);
-      } catch (error) {
-        console.error("Error to get products", error);
-      }
-    }
-    getProducts();
   }, [categoryId, page, searchText]);
 
   return { filteredProducts };
